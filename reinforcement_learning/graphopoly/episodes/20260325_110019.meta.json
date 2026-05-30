@@ -1,0 +1,18 @@
+{
+  "run_id": "20260325_110019",
+  "run_name": "20260325_110019",
+  "mode": "simulate",
+  "started_at": "2026-03-25T11:00:19.237558",
+  "finished_at": "2026-03-25T11:02:04.734114",
+  "num_episodes": 84,
+  "num_agents": 2,
+  "num_nodes": 0,
+  "final_rewards": [
+    -24293.13,
+    42218.13
+  ],
+  "final_trips": [
+    409,
+    308
+  ]
+}

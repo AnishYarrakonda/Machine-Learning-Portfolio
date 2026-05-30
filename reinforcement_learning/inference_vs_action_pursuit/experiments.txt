@@ -1,0 +1,76 @@
+EXPERIMENT PLAN: Inference vs. Move Pursuit
+============================================
+
+Total: 38 experiments across 3 groups
+
+Grid Parameters:
+  N = 20 (toroidal grid side length)
+  T = 50 (episode timesteps)
+  R_catch = 1.0 (catch radius in cells)
+  total_timesteps = 500_000 per run
+  n_envs = 4 (parallel environments)
+
+═══════════════════════════════════════════════════════════════════════
+
+GROUP 0: NO-NOISE CONTROL (3 runs)
+Purpose: Verify agent can navigate with no noise across all drift levels
+
+  σ₀ = 0.00001 (near-zero noise, deterministic observation)
+  α = 0 (noise scaling exponent, irrelevant at σ₀≈0)
+
+  run_name                    p_drift
+  control_drift_static        0.0
+  control_drift_moderate      0.5
+  control_drift_maximum       1.0
+
+═══════════════════════════════════════════════════════════════════════
+
+GROUP 1: MAIN EXPERIMENTS (30 runs)
+Purpose: Factorial sweep of noise level, noise profile, and drift
+
+Dimensions:
+  p_drift ∈ {0.5, 1.0}        (2 values)
+  σ₀ ∈ {0.00001, 0.5, 1.0}    (3 values)
+  α ∈ {-2, -1, 0, 1, 2}       (5 values)
+  Total: 2 × 3 × 5 = 30 runs
+
+Table: p_drift=0.5 (Moderate drift)
+─────────────────────────────────────────────────────────────────────
+  σ₀        α=-2             α=-1             α=0              α=1              α=2
+  0.00001   m_pd05_s1e5_a-2  m_pd05_s1e5_a-1  m_pd05_s1e5_a0   m_pd05_s1e5_a1   m_pd05_s1e5_a2
+  0.5       m_pd05_s50_a-2   m_pd05_s50_a-1   m_pd05_s50_a0    m_pd05_s50_a1    m_pd05_s50_a2
+  1.0       m_pd05_s100_a-2  m_pd05_s100_a-1  m_pd05_s100_a0   m_pd05_s100_a1   m_pd05_s100_a2
+
+Table: p_drift=1.0 (Maximum drift)
+─────────────────────────────────────────────────────────────────────
+  σ₀        α=-2             α=-1             α=0              α=1              α=2
+  0.00001   m_pd10_s1e5_a-2  m_pd10_s1e5_a-1  m_pd10_s1e5_a0   m_pd10_s1e5_a1   m_pd10_s1e5_a2
+  0.5       m_pd10_s50_a-2   m_pd10_s50_a-1   m_pd10_s50_a0    m_pd10_s50_a1    m_pd10_s50_a2
+  1.0       m_pd10_s100_a-2  m_pd10_s100_a-1  m_pd10_s100_a0   m_pd10_s100_a1   m_pd10_s100_a2
+
+═══════════════════════════════════════════════════════════════════════
+
+GROUP 2: NO-DRIFT BASELINE (5 runs)
+Purpose: Isolate α effect without drift confound; sanity check for Group 1
+
+  p_drift = 0.0 (static target, no motion)
+  σ₀ = 0.5 (moderate noise level)
+
+  run_name                    α
+  baseline_nodrift_a-2        -2
+  baseline_nodrift_a-1        -1
+  baseline_nodrift_a0         0
+  baseline_nodrift_a1         1
+  baseline_nodrift_a2         2
+
+═══════════════════════════════════════════════════════════════════════
+
+WHAT TO LOOK FOR
+
+Across all 38 runs:
+  • α flip: Inference density should rise as α increases from -2 to +2.
+            At α<0 (far cells clear): infer when far. At α>0 (far cells noisy): infer when close.
+  • σ₀ ramp: Higher noise → more total inference, but spatial pattern unchanged by σ₀ alone.
+  • p_drift effect: Higher drift → inference density rises uniformly (drift adds temporal pressure).
+  • α=0 sanity: At α=0, inference density should be approximately flat vs. distance (only uncertainty matters, not location).
+  • GROUP 2 baseline: Should show clean α effect without drift confound. Use to validate GROUP 1 patterns.

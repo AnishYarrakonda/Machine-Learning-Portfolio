@@ -1,0 +1,184 @@
+/* ── Buttons ─────────────────────────────────────── */
+.btn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-btn);
+  padding: 9px 18px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  min-height: 38px;
+}
+
+.btn:hover:not(:disabled) {
+  color: var(--color-text);
+  border-color: var(--color-border-active);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:active:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn.primary {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 2px 8px var(--color-accent-glow);
+}
+
+.btn.primary:hover:not(:disabled) {
+  background: var(--color-accent-dim);
+  box-shadow: 0 4px 12px var(--color-accent-glow);
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn.secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-border-active);
+}
+
+.btn.danger {
+  color: var(--color-danger);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.btn.danger:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: var(--color-danger);
+  color: #fff;
+}
+
+.btn.warning {
+  color: var(--color-warning);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.btn.warning:hover:not(:disabled) {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: var(--color-warning);
+  color: #fff;
+}
+
+.btn.ghost {
+  border-color: transparent;
+  color: var(--color-text-dim);
+  padding: 8px 12px;
+}
+
+.btn.ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text);
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ── Inputs ──────────────────────────────────────── */
+.input-base {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: var(--radius-input);
+  padding: 9px 12px;
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 500;
+  transition: all var(--transition-base);
+  width: 100%;
+}
+
+.input-base:focus {
+  border-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ── Range Slider ────────────────────────────────── */
+.range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  outline: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+  background: #fff;
+}
+
+/* ── Toggle ──────────────────────────────────────── */
+.toggle-track {
+  width: 38px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background var(--transition-base);
+  flex-shrink: 0;
+}
+
+.toggle-track.active {
+  background: var(--color-accent);
+}
+
+.toggle-thumb {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform var(--transition-base);
+}
+
+.toggle-track.active .toggle-thumb {
+  transform: translateX(18px);
+}
+
+/* ── Glass Panel ─────────────────────────────────── */
+.glass-panel {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.glass-panel:hover {
+  border-color: var(--color-border-active);
+  box-shadow: var(--shadow-elevated);
+}

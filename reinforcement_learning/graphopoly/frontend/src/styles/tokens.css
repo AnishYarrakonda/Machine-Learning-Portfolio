@@ -1,0 +1,79 @@
+:root {
+  /* ── Backgrounds ──────────────────────────────── */
+  --color-bg: #0b0c0d;
+  --color-bg-elevated: #111214;
+  --color-bg-surface: #161719;
+  --color-bg-hover: #1e2024;
+  --color-bg-muted: #1a1b1e;
+
+  /* ── Borders ──────────────────────────────────── */
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-subtle: rgba(255, 255, 255, 0.04);
+  --color-border-active: rgba(255, 255, 255, 0.16);
+
+  /* ── Text ─────────────────────────────────────── */
+  --color-text: #f0f0f0;
+  --color-text-secondary: rgba(240, 240, 240, 0.65);
+  --color-text-mid: rgba(240, 240, 240, 0.72);
+  --color-text-dim: rgba(240, 240, 240, 0.42);
+  --color-text-muted: rgba(240, 240, 240, 0.26);
+
+  /* ── Accent (action blue — clean, no glow) ────── */
+  --color-accent: #0066FF;
+  --color-accent-dim: #0052cc;
+  --color-accent-glow: rgba(0, 102, 255, 0.10);
+  --color-accent-surface: rgba(0, 102, 255, 0.06);
+
+  /* ── Status ───────────────────────────────────── */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  /* ── Typography ───────────────────────────────── */
+  --font-sans: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 15px;
+  --text-lg: 17px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+
+  /* ── Layout ───────────────────────────────────── */
+  --header-h: 56px;
+  --sidebar-w: 300px;
+  --sidebar-w-collapsed: 56px;
+
+  /* ── Spacing ──────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --gap-md: 12px;
+  --pad-card: 16px;
+
+  /* ── Radii ────────────────────────────────────── */
+  --radius-sm: 4px;
+  --radius-btn: 5px;
+  --radius-input: 5px;
+  --radius-card: 6px;
+  --radius-lg: 10px;
+  --radius-pill: 20px;
+
+  /* ── Shadows ──────────────────────────────────── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-glow-accent: 0 0 0 1px rgba(0, 102, 255, 0.20);
+
+  /* ── Transitions ──────────────────────────────── */
+  --transition-fast: 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
